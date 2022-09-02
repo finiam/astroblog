@@ -1,14 +1,28 @@
 ---
 import BlogPost from "../layouts/BlogPost.astro";
 import { getAllPaths, getPost } from "../lib/api";
+import showdown from "showdown";
+import showdownHighlight from "showdown-highlight";
+import "highlight.js/styles/atom-one-dark.css";
 
 export async function getStaticPaths() {
   return getAllPaths();
 }
 
 const post = await getPost(Astro.params.slug as string);
+
+const converter = new showdown.Converter({
+  extensions: [
+    showdownHighlight({
+      pre: true,
+    }),
+  ],
+});
+
+const html = converter.makeHtml(post.body);
 ---
 
 <BlogPost title={Astro.props.title}>
   <h1>{post.title}</h1>
+  <div set:html={html}></div>
 </BlogPost>

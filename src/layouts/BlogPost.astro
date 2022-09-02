@@ -1,4 +1,6 @@
 ---
+import Layout from "./Layout.astro";
+
 export interface Props {
   title: string;
 }
@@ -6,36 +8,15 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <article>
-      <slot />
-    </article>
-    <style>
-      html {
-        font-family: system-ui, sans-serif;
-        font-size: var(--font-size-base);
-        color: var(--color-text);
-        background-color: var(--color-bg);
-      }
-
-      body {
-        margin: 0;
-      }
-
-      article {
-        width: 90%;
-        max-width: 70ch;
-        margin: auto;
-      }
-    </style>
-  </body>
-</html>
+<Layout title={title}>
+  <article>
+    <slot />
+  </article>
+  <style>
+    article {
+      width: 90%;
+      max-width: 70ch;
+      margin: auto;
+    }
+  </style>
+</Layout>
