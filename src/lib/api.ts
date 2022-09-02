@@ -30,7 +30,7 @@ const POST_SUMMARY_QUERY = `
   publishedAt
 `;
 
-export async function getAllPosts() {
+export async function getAllPosts(): Promise<SanityPostPreview[]> {
   const { allPost } = await request(
     ENDPOINT,
     gql`
