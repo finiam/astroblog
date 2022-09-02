@@ -17,9 +17,12 @@ const { slug, title, featuredImage, featuredImageAlt } = Astro.props;
   .card {
     text-decoration: none;
   }
+  h2 {
+    font-size: 1.5em;
+  }
   .card-img {
     margin: 0 0 1em;
-    height: 300px;
+    height: 150px;
     overflow: hidden;
   }
   img {
@@ -28,6 +31,9 @@ const { slug, title, featuredImage, featuredImageAlt } = Astro.props;
     object-fit: cover;
     object-position: center;
   }
-  h2 {
+  @media screen and (min-width: 40em) {
+    .card-img {
+      height: 280px;
+    }
   }
 </style>

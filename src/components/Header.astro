@@ -1,6 +1,6 @@
 <header>
   <a href="/">
-    <h1>Finiam's blog (but Astro)</h1>
+    <h1 class="logo">Finiam's blog (but with Astro 🚀)</h1>
   </a>
   <nav>
     <a href="https://finiam.com/about"> About</a>
@@ -12,9 +12,19 @@
 <style>
   header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2em;
+  }
+  a {
+    text-decoration: none;
+  }
+  .logo {
+    font-size: 1.5em;
+  }
+  nav {
+    min-width: 200px;
   }
   nav a {
     margin-left: 0.5em;

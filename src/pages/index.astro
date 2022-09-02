@@ -15,7 +15,11 @@ const posts = await getAllPosts();
 <style>
   .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1em;
+    grid-gap: 2em;
+  }
+  @media screen and (min-width: 40em) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 </style>
