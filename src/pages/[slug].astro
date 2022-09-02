@@ -1,0 +1,14 @@
+---
+import BlogPost from "../layouts/BlogPost.astro";
+import { getAllPaths, getPost } from "../lib/api";
+
+export async function getStaticPaths() {
+  return getAllPaths();
+}
+
+const post = await getPost(Astro.params.slug as string);
+---
+
+<BlogPost title={Astro.props.title}>
+  <h1>{post.title}</h1>
+</BlogPost>
